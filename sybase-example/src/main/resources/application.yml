@@ -6,9 +6,9 @@ spring:
         sybase-db:
           type: com.alibaba.druid.pool.DruidDataSource
           driver-class-name: net.sourceforge.jtds.jdbc.Driver
-          url: jdbc:jtds:sybase://121.89.165.5:5000/guest;charset=cp936
+          url: jdbc:jtds:sybase://elastic:5000/guest;charset=cp936
           username: sa
-          password: password
+          password: ENC(99kavERaJt7HEztzo9KPjeHtSa+uEBfI)
         #mysql-db:
         #  type: com.alibaba.druid.pool.DruidDataSource
         #  driver-class-name: com.mysql.cj.jdbc.Driver
@@ -36,3 +36,7 @@ logging:
   level:
     root: info
     com.ixan.example.mapper: debug
+
+jasypt:
+  encryptor:
+    password: sybase_init
