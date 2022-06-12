@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @description mybatis plus config
  */
 @Configuration
-@MapperScan("com.ixan.example.mapper")
+@MapperScan("com.ixan.example.infra.gatewayimpl.mapper")
 public class MybatisPlusConfig {
 }
