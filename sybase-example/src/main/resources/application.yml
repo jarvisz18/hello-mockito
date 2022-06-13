@@ -40,4 +40,7 @@ jasypt:
 # 配置扫描
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml,classpath:mapper/**/*Mapper.xml
-
+server:
+  port: 51200
+  servlet:
+    context-path: /sybase
