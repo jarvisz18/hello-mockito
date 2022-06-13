@@ -2,17 +2,24 @@ package com.ixan.example.test;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
-import java.util.TimeZone;
 
 /**
  * @author stackzhang@126.com
  * @version 1.0
  * @date Created in 2022/6/13 下午9:41
  * @description zoned date time test
+ * <p>
+ * 参考学习文档:
+ * https://docs.oracle.com/javase/10/docs/api/java/time/format/DateTimeFormatter.html
+ * https://segmentfault.com/a/1190000041573835
+ * https://www.concretepage.com/java/java-8/java-datetimeformatter
+ * https://zhuanlan.zhihu.com/p/149302250
  */
 public class ZonedDateTimeTest {
 	private String timePattern = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -68,5 +75,25 @@ public class ZonedDateTimeTest {
 		System.out.println(availableZoneIds.contains("+0800"));
 		System.out.println(ZoneId.SHORT_IDS.containsKey("+0800"));
 		System.out.println(ZoneId.of("+0800"));
+	}
+
+	@Test
+	void test_print_datetime() {
+		LocalDate localDate = LocalDate.now();
+		LocalDateTime localDateTime = LocalDateTime.now();
+		ZonedDateTime zonedDateTime = ZonedDateTime.now();
+		System.out.println(localDate.format(DateTimeFormatter.ISO_DATE));
+		System.out.println(localDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+		System.out.println(zonedDateTime.format(DateTimeFormatter.ISO_OFFSET_DATE));
+		System.out.println(zonedDateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME));
+		System.out.println(zonedDateTime.format(DateTimeFormatter.ISO_DATE_TIME));
+	}
+
+	@Test
+	public void test_zoned_time() {
+		String format = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+		ZonedDateTime zonedDateTime = ZonedDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+		System.out.println(formatter.format(zonedDateTime));
 	}
 }
