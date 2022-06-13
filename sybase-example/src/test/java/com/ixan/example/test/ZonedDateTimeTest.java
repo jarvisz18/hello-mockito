@@ -3,7 +3,6 @@ package com.ixan.example.test;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -69,8 +68,9 @@ public class ZonedDateTimeTest {
 
 	@Test
 	void test_zoned() {
+		//获得所有可用时区
 		Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
-		//availableZoneIds.forEach(System.out::println);
+		availableZoneIds.forEach(System.out::println);
 		System.out.println("=========================>");
 		System.out.println(availableZoneIds.contains("+0800"));
 		System.out.println(ZoneId.SHORT_IDS.containsKey("+0800"));
@@ -80,7 +80,6 @@ public class ZonedDateTimeTest {
 	@Test
 	void test_print_datetime() {
 		LocalDate localDate = LocalDate.now();
-		LocalDateTime localDateTime = LocalDateTime.now();
 		ZonedDateTime zonedDateTime = ZonedDateTime.now();
 		System.out.println(localDate.format(DateTimeFormatter.ISO_DATE));
 		System.out.println(localDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
@@ -95,5 +94,10 @@ public class ZonedDateTimeTest {
 		ZonedDateTime zonedDateTime = ZonedDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
 		System.out.println(formatter.format(zonedDateTime));
+
+		//切换时区
+		ZonedDateTime zoneSameInstant = zonedDateTime.withZoneSameInstant(ZoneId.of("America/Cayenne"));
+		System.out.println(zonedDateTime);
+		System.out.println(zoneSameInstant);
 	}
 }
