@@ -3,15 +3,17 @@ package com.ixan.search.mockito;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.atMost;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 /**
  * @author stackzhang@126.com
@@ -22,7 +24,7 @@ import static org.mockito.Mockito.*;
 @SuppressWarnings("_all")
 public class MockListExample02 {
 
-	private List<String> mockedList = spy(ArrayList.class);
+	private final List<String> mockedList = spy(ArrayList.class);
 
 	@Before
 	public void init() {
