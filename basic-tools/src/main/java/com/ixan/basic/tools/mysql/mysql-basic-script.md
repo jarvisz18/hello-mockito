@@ -29,3 +29,14 @@ select * from information_schema.INNODB_LOCKS;
 select * from information_schema.INNODB_LOCK_WAITS;
 
 ````
+
+case when语法
+````shell script
+SELECT std_id FROM GROUP
+CASE WHEN COUNT(*) = 1 --只加入了一个社团的学生
+THEN MAX(club_id)
+ELSE MAX(CASE WHEN main_club_flg = 'Y'
+    THEN club_id ELSE NULL END)
+  END AS main_club StudentClub
+BY std_id;
+````
