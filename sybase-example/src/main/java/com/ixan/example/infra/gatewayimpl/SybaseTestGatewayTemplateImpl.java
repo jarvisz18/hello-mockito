@@ -19,7 +19,7 @@ public class SybaseTestGatewayTemplateImpl implements SybaseTestGateway {
 
 	@Override
 	public CountValueDTO countIdGreaterThan(CountValueDTO countValueDTO) {
-		Integer value = jdbcTemplateWrapper.countIdGreaterThan(countValueDTO.getMinId());
+		Integer value = jdbcTemplateWrapper.countIdGreaterThanByJdbc(countValueDTO.getMinId());
 		countValueDTO.setCountNo(value);
 		return countValueDTO;
 	}
