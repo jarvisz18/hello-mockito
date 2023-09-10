@@ -29,6 +29,7 @@ public class InvoiceServiceImplTest {
 	 */
 	@Before
 	public void setUp() {
+		//设置测试类被Mockito管理
 		MockitoAnnotations.openMocks(this);
 		System.out.println("run:" + (count++) + " InvoiceServiceImpl:" + invoiceService);
 	}
