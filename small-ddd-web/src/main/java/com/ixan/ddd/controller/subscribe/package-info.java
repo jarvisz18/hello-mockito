@@ -1,4 +1,4 @@
-package com.ixan.ddd.interfaces.subscribe;
+package com.ixan.ddd.controller.subscribe;
 /**
  * mq 事件订阅
  * 注1：统一返回Result
